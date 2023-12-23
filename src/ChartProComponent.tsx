@@ -318,7 +318,8 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
       loading = true
       setLoadingVisible(true)
       const get = async () => {
-        const [from, to] = adjustFromTo(p, new Date().getTime(), 500)
+        const timestamp = props.dataTimestamp ?? new Date().getTime()
+        const [from, to] = adjustFromTo(p, timestamp, 500)
         const kLineDataList = await props.datafeed.getHistoryKLineData(s, p, from, to)
         widget?.applyNewData(kLineDataList, kLineDataList.length > 0)
         props.datafeed.subscribe(s, p, data => {

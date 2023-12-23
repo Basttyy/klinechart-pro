@@ -56,6 +56,7 @@ export interface ChartProOptions {
   mainIndicators?: string[]
   subIndicators?: string[]
   datafeed: Datafeed
+  dataTimestamp: number
 }
 
 export interface ChartPro {
